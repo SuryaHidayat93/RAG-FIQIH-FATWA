@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.env
+data/qdrant_storage/
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
