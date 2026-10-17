@@ -1,0 +1,50 @@
+[
+  {
+    "id": "fatwa-dsn-116",
+    "content": "Fatwa DSN-MUI No. 116/DSN-MUI/IX/2017 tentang Uang Elektronik Syariah. Ketentuan umum: Uang elektronik syariah wajib terbebas dari riba, gharar, maysir, tadlis, risywah, dan isyraf. Akad penerbitan uang elektronik antara penerbit dan pemegang adalah wadi'ah atau qardh. Apabila terdapat biaya fasilitas, akad yang digunakan adalah ijarah.",
+    "corpus": "fatwa",
+    "metadata": {
+      "lembaga": "DSN-MUI",
+      "nomor_fatwa": "116/DSN-MUI/IX/2017",
+      "tahun": 2017,
+      "topik": "Uang Elektronik Syariah",
+      "mazhab": "Kompilasi Hukum Ekonomi Syariah"
+    }
+  },
+  {
+    "id": "fatwa-dsn-140",
+    "content": "Fatwa DSN-MUI No. 140/DSN-MUI/VIII/2021 tentang Penyelenggaraan Pembiayaan Berbasis Teknologi Informasi Berdasarkan Prinsip Syariah (Peer-to-Peer Financing). Layanan pinjam meminjam online (fintech) boleh dilakukan menggunakan akad al-bai', ijarah, mudharabah, musyarakah, wakalah bi al-ujrah, dan qardh, serta dilarang mengenakan bunga pinjaman ribawi.",
+    "corpus": "fatwa",
+    "metadata": {
+      "lembaga": "DSN-MUI",
+      "nomor_fatwa": "140/DSN-MUI/VIII/2021",
+      "tahun": 2021,
+      "topik": "Fintech P2P Lending & Paylater",
+      "mazhab": "Kompilasi Hukum Ekonomi Syariah"
+    }
+  },
+  {
+    "id": "fatwa-mui-crypto-2021",
+    "content": "Ijtima Ulama Komisi Fatwa MUI Se-Indonesia VII Tahun 2021 tentang Hukum Uang Kripto (Cryptocurrency). Ketentuan hukum: (1) Penggunaan cryptocurrency sebagai mata uang hukumnya haram, karena mengandung gharar, dharar dan bertentangan dengan Undang-Undang No. 7 Tahun 2011 dan Peraturan Bank Indonesia No. 17 Tahun 2015. (2) Cryptocurrency sebagai komoditi atau aset digital tidak sah diperjualbelikan karena mengandung gharar, qimar/judi, dan tidak memenuhi syarat sil'ah secara syar'i (tidak memiliki wujud fisik, tidak memiliki nilai intrinsik yang jelas, dan tidak dapat diserahterimakan secara pasti). (3) Cryptocurrency yang memenuhi syarat sebagai sil'ah, memiliki underlying asset, dan memiliki manfaat yang jelas sah untuk diperjualbelikan.",
+    "corpus": "fatwa",
+    "metadata": {
+      "lembaga": "MUI Pusat",
+      "nomor_fatwa": "Ijtima Ulama VII/2021",
+      "tahun": 2021,
+      "topik": "Hukum Cryptocurrency dan Bitcoin",
+      "mazhab": "Kompilasi Hukum Islam Kontemporer"
+    }
+  },
+  {
+    "id": "fatwa-dsn-77-emas-murabahah",
+    "content": "Fatwa DSN-MUI No. 77/DSN-MUI/V/2010 tentang Jual Beli Emas Secara Tidak Tunai. Ketentuan hukum: Jual beli emas secara tidak tunai (kredit/angsuran) baik melalui jual beli biasa maupun jual beli murabahah hukumnya adalah BOLEH (mubah, ja'iz) selama emas tidak menjadi alat tukar resmi (uang), melainkan berstatus sebagai komoditas (tsaman/sil'ah), dengan syarat: harga jual tidak boleh bertambah selama jangka waktu perjanjian, emas diserahkan setelah pelunasan atau sesuai kesepakatan, dan tidak dijadikan jaminan atas barang lain.",
+    "corpus": "fatwa",
+    "metadata": {
+      "lembaga": "DSN-MUI",
+      "nomor_fatwa": "77/DSN-MUI/V/2010",
+      "tahun": 2010,
+      "topik": "Jual Beli Emas Cicilan Tidak Tunai",
+      "mazhab": "Kompilasi Hukum Ekonomi Syariah"
+    }
+  }
+]
