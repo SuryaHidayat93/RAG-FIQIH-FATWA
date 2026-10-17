@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any, Dict, List
 from qdrant_client.models import PointStruct
 from src.retrieval.dense_retriever import DenseRetriever
+from src.retrieval.bm25_retriever import CorpusBM25Index
 from src.state import Document
 
 
@@ -89,7 +90,13 @@ def index_data():
             )
 
         dense.client.upsert(collection_name=corpus_name, points=points)
-        print(f"Koleksi '{corpus_name}' selesai diindeks!")
+        print(f"Koleksi Qdrant '{corpus_name}' selesai diindeks!")
+
+        # Indexing & persistensi BM25 ke disk
+        bm25_index = CorpusBM25Index(corpus_name=corpus_name)
+        bm25_index.build_index(dataset)
+        saved_path = bm25_index.save()
+        print(f"Index BM25 '{corpus_name}' disimpan ke: {saved_path}")
 
 
 if __name__ == "__main__":
