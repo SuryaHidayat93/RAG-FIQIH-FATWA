@@ -1,53 +1,1342 @@
 [
-  {"text": "Bagaimana fatwa DSN MUI tentang penggunaan paylater pada e-commerce?", "label": "fatwa"},
-  {"text": "Apakah cryptocurrency halal atau haram menurut MUI?", "label": "fatwa"},
-  {"text": "Hukum trading forex online menurut fatwa dewan syariah nasional", "label": "fatwa"},
-  {"text": "Bagaimana fatwa vaksin covid yang mengandung tripsin babi?", "label": "fatwa"},
-  {"text": "Hukum cashback dan diskon pada dompet digital gopay ovo menurut fatwa", "label": "fatwa"},
-  {"text": "Fatwa tarjih muhammadiyah mengenai hisab wujudul hilal", "label": "fatwa"},
-  {"text": "Hasil bahtsul masail NU tentang hukum donor organ tubuh", "label": "fatwa"},
-  {"text": "Bagaimana fatwa hukum asuransi syariah vs konvensional?", "label": "fatwa"},
-  {"text": "Hukum dropshipping marketplace dalam fatwa DSN", "label": "fatwa"},
-  {"text": "Apakah pinjaman online peer to peer syariah diperbolehkan oleh fatwa MUI?", "label": "fatwa"},
-  {"text": "Bagaimana hukum sewa rahim menurut fatwa ulama kontemporer?", "label": "fatwa"},
-  {"text": "Fatwa hukum kepemilikan saham bank konvensional", "label": "fatwa"},
-  {"text": "Hukum multi level marketing MLM syariah menurut MUI", "label": "fatwa"},
-  {"text": "Apakah kartu kredit syariah diperbolehkan dalam fatwa DSN?", "label": "fatwa"},
-
-  {"text": "Apa saja fardhu wudhu menurut mazhab Syafi'i?", "label": "fiqih"},
-  {"text": "Apakah menyentuh istri membatalkan wudhu menurut madzhab Syafii?", "label": "fiqih"},
-  {"text": "Bagaimana tata cara sujud sahwi dan sebab-sebabnya dalam kitab fiqih?", "label": "fiqih"},
-  {"text": "Batas minimal dan maksimal masa haid wanita dalam fiqih klasik", "label": "fiqih"},
-  {"text": "Hukum shalat jamak dan qashar bagi musafir serta syarat jaraknya", "label": "fiqih"},
-  {"text": "Rukun dan syarat sah akad nikah menurut empat mazhab", "label": "fiqih"},
-  {"text": "Bagaimana pembagian harta warisan untuk anak perempuan tunggal dalam faraidh?", "label": "fiqih"},
-  {"text": "Hukum membaca qunut subuh menurut pandangan mazhab Syafi'i dan Hanafi", "label": "fiqih"},
-  {"text": "Tata cara mandi junub bagi orang yang berhadats besar", "label": "fiqih"},
-  {"text": "Hukum menyentuh mushaf Al-Quran tanpa wudhu menurut ulama salaf", "label": "fiqih"},
-  {"text": "Syarat sah shalat jumat dan batas minimal jumlah jamaah", "label": "fiqih"},
-  {"text": "Hukum najis air liur anjing dan cara menyucikannya dalam fiqih", "label": "fiqih"},
-  {"text": "Hukum memotong kuku dan rambut saat qurban bagi shohibul qurban", "label": "fiqih"},
-  {"text": "Perbedaan rukun haji dan wajib haji menurut mazhab Syafi'i", "label": "fiqih"},
-
-  {"text": "Bagaimana hukum bunga bank menurut fiqih riba klasik dan fatwa MUI terkini?", "label": "keduanya"},
-  {"text": "Hukum akad nikah online lewat video call zoom menurut ulama fiqih dan Kemenag", "label": "keduanya"},
-  {"text": "Zakat saham dan reksadana syariah perbandingan fiqih perniagaan dan fatwa modern", "label": "keduanya"},
-  {"text": "Hukum bayi tabung menurut kaidah fiqih nasab dan fatwa MUI", "label": "keduanya"},
-  {"text": "Hukum jual beli emas online secara kredit menurut nash riba nasiah dan DSN MUI", "label": "keduanya"},
-  {"text": "Hukum qurban sapi secara kolektif 7 orang dan pelaksanaannya via lembaga filantropi", "label": "keduanya"},
-  {"text": "Zakat profesi atau penghasilan dasar fiqih klasik qiyas dan fatwa kontemporer", "label": "keduanya"},
-  {"text": "Hukum transplantasi ginjal dari sudut pandang maslahah mursalah dan fatwa ulama", "label": "keduanya"},
-  {"text": "Hukum bekerja di bank konvensional menurut kitab turats dan fatwa dewan ulama", "label": "keduanya"},
-  {"text": "Hukum asuransi jiwa ditinjau dari gharar fiqih dan regulasi syariah saat ini", "label": "keduanya"},
-
-  {"text": "Bagaimana cara membuat aplikasi web dengan FastAPI dan React?", "label": "di_luar_cakupan"},
-  {"text": "Berapa jarak dari bumi ke matahari?", "label": "di_luar_cakupan"},
-  {"text": "Tuliskan kode python untuk sorting quicksort", "label": "di_luar_cakupan"},
-  {"text": "Resep membuat nasi goreng spesial enak dan praktis", "label": "di_luar_cakupan"},
-  {"text": "Siapa presiden pertama Amerika Serikat?", "label": "di_luar_cakupan"},
-  {"text": "Berapa harga saham Apple dan Nvidia hari ini?", "label": "di_luar_cakupan"},
-  {"text": "Jelaskan cara kerja algoritma deep learning transformer", "label": "di_luar_cakupan"},
-  {"text": "Tips merawat mobil transmisi otomatis agar awet", "label": "di_luar_cakupan"},
-  {"text": "Jadwal pertandingan liga inggris malam ini", "label": "di_luar_cakupan"},
-  {"text": "Bagaimana cara memperbaiki error blue screen di Windows 11?", "label": "di_luar_cakupan"}
+  {
+    "text": "Bagaimana fatwa DSN MUI tentang penggunaan paylater pada e-commerce?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Apakah cryptocurrency halal atau haram menurut fatwa MUI?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hukum trading forex online menurut fatwa dewan syariah nasional",
+    "label": "fatwa"
+  },
+  {
+    "text": "Bagaimana fatwa hukum cashback dan diskon pada dompet digital Gopay dan Ovo?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Apakah pinjaman online peer to peer syariah diperbolehkan oleh fatwa MUI?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa DSN MUI nomor 116 tentang uang elektronik syariah",
+    "label": "fatwa"
+  },
+  {
+    "text": "Bagaimana status hukum transaksi non-fungible token NFT menurut fatwa ulama?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hukum dropshipping di marketplace online menurut fatwa DSN MUI",
+    "label": "fatwa"
+  },
+  {
+    "text": "Apakah kartu kredit syariah diperbolehkan dalam fatwa dewan syariah nasional?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hukum transaksi jual beli emas digital di aplikasi Tokopedia atau Bukalapak menurut fatwa MUI",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa DSN-MUI tentang multi level marketing MLM syariah dan ketentuannya",
+    "label": "fatwa"
+  },
+  {
+    "text": "Bagaimana hukum affiliate marketing TikTok dan Shopee dalam fatwa muamalah kontemporer?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hukum trading saham harian atau day trading menurut pandangan fatwa DSN MUI",
+    "label": "fatwa"
+  },
+  {
+    "text": "Apakah binary option seperti Binomo dan Olymptrade haram menurut fatwa MUI?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa dewan syariah nasional tentang pembiayaan sewa beli atau Ijarah Muntahiyah Bittamlik IMBT",
+    "label": "fatwa"
+  },
+  {
+    "text": "Ketentuan akad hawalah dalam anjak piutang syariah menurut fatwa DSN",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hukum leasing mobil dan motor melalui multifinance syariah menurut MUI",
+    "label": "fatwa"
+  },
+  {
+    "text": "Bagaimana fatwa hukum paylater dengan skema denda keterlambatan menurut DSN MUI?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Apakah game play to earn menghasilkan koin crypto halal menurut fatwa?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa DSN-MUI tentang reksadana syariah dan screening saham halal",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa tarjih muhammadiyah mengenai hisab wujudul hilal penentuan 1 ramadhan",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hasil keputusan bahtsul masail NU tentang hukum cryptocurrency dan bitcoin",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa majelis tarjih tentang keabsahan shalat shaf berjarak saat wabah pandemi",
+    "label": "fatwa"
+  },
+  {
+    "text": "Keputusan bahtsul masail pengurus besar nahdlatul ulama tentang hukum rokok",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa MUI tentang pedoman bermuamalah melalui media sosial dan larangan menyebar hoaks",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa majelis tarjih muhammadiyah mengenai hukum rokok elektrik atau vape",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hasil bahtsul masail NU mengenai hukum pemanfaatan tanah wakaf untuk jalan tol",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa tarjih muhammadiyah tentang kepemilikan saham pada bursa efek",
+    "label": "fatwa"
+  },
+  {
+    "text": "Keputusan komisi fatwa MUI se-Indonesia tentang kriteria makanan dan minuman halal",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa dewan syariah nasional mengenai sukuk negara dan obligasi syariah",
+    "label": "fatwa"
+  },
+  {
+    "text": "Bagaimana fatwa MUI mengenai vaksin covid-19 yang menggunakan tripsin babi?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa MUI tentang hukum donor kornea mata dan organ tubuh manusia",
+    "label": "fatwa"
+  },
+  {
+    "text": "Keputusan fatwa dewan syariah tentang program bayi tabung bagi pasangan suami istri",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hukum euthanasia atau suntik mati bagi pasien koma menurut fatwa MUI",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa dewan ulama mengenai hukum sterilisasi vasektomi dan tubektomi",
+    "label": "fatwa"
+  },
+  {
+    "text": "Bagaimana fatwa hukum asuransi kesehatan BPJS menurut ijtima ulama komisi fatwa MUI?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa MUI nomor 24 tahun 2017 tentang hukum dan pedoman bermuamalah di medsos",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hukum bedah plastik untuk tujuan estetika kecantikan menurut fatwa kontemporer",
+    "label": "fatwa"
+  },
+  {
+    "text": "Bagaimana fatwa ulama tentang cloning genetik pada hewan dan manusia?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa MUI tentang hukum pemanfaatan sel punca atau stem cell untuk pengobatan",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hukum pemakaman jenazah korban penyakit menular menurut fatwa majelis ulama indonesia",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa tentang penggunaan pewarna karmin dari serangga cochineal menurut MUI",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa dewan syariah nasional terkait hedging syariah atau tahawwuth",
+    "label": "fatwa"
+  },
+  {
+    "text": "Bagaimana fatwa DSN MUI mengenai produk pembiayaan take over perbankan syariah?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa dewan syariah nasional mengenai akad mudharabah musytarakah",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa MUI tentang pemanfaatan daging qurban yang diolah menjadi kornet kaleng",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa dewan hisbah persis tentang penentuan awal bulan kamariah",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hasil musyawarah nasional tarjih muhammadiyah tentang hak politik perempuan",
+    "label": "fatwa"
+  },
+  {
+    "text": "Keputusan bahtsul masail PWNU jawa timur tentang hukum transplantasi rahim",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa komisi fatwa MUI pusat tentang pemungutan zakat melalui platform online kitabisa",
+    "label": "fatwa"
+  },
+  {
+    "text": "Bagaimana hukum jual beli akun game online menurut fatwa dewan fatwa?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hukum arisan qurban dengan sistem kocokan menurut fatwa komisi syariah",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa DSN-MUI tentang diskon atau potongan pelunasan pembiayaan murabahah",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa DSN MUI tentang batas maksimal ujrah dalam akad ijarah",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hukum trading robot automated trading system menurut fatwa perbankan syariah",
+    "label": "fatwa"
+  },
+  {
+    "text": "Bagaimana fatwa MUI tentang donor darah saat berpuasa ramadhan?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa komisi fatwa tentang shalat jumat di tempat selain masjid saat kondisi darurat",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa MUI tentang penggunaan alkohol pada hand sanitizer dan parfum",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa DSN-MUI mengenai sertifikasi halal obat-obatan dan produk biologis",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa majelis tarjih muhammadiyah mengenai hukum musik dan seni lukis",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hukum investasi pada peer to peer lending pinjol konvensional menurut fatwa",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hasil bahtsul masail NU tentang hukum mengonsumsi kepiting dan rajungan",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa dewan syariah nasional tentang safe deposit box perbankan syariah",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa komisi fatwa tentang penguburan jenazah bertumpuk dalam satu liang lahat",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa dewan fatwa persatuan islam tentang shalat idul fitri di lapangan terbuka",
+    "label": "fatwa"
+  },
+  {
+    "text": "Bagaimana fatwa MUI tentang produk makanan berbahan dasar serangga maggot?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa DSN MUI tentang sertifikat deposito syariah",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa dewan syariah nasional nomor 83 tentang hukum dukungan perjuangan palestina",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa MUI tentang hukum memboikot produk pendukung agresi militer",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hukum penggunaan dana talangan haji dari bank syariah menurut fatwa DSN MUI",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa dewan syariah nasional tentang pembiayaan rekening koran syariah",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa MUI tentang hukum rekayasa cuaca dan teknologi hujan buatan",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hasil keputusan muktamar NU mengenai konsep khilafah dalam konteks NKRI",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa DSN MUI mengenai akad musyarakah mutanaqisah MMQ untuk KPR syariah",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa komisi fatwa tentang donor sperma dan bank sperma dalam islam",
+    "label": "fatwa"
+  },
+  {
+    "text": "Bagaimana fatwa DSN MUI tentang skema pembiayaan anjak piutang syariah factoring?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa MUI tentang hukum penggunaan hewan hasil rekayasa genetika transgenik untuk pangan",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa dewan syariah nasional nomor 108 tentang pedoman penyelenggaraan pariwisata syariah",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hukum produk kosmetik yang mengandung kolagen hewani menurut fatwa halal MUI",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa majelis tarjih muhammadiyah tentang shalat tarawih berjamaah 11 rakaat",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hasil bahtsul masail nahdlatul ulama tentang hukum penggunaan biogas dari kotoran babi",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa DSN MUI tentang prinsip-prinsip penerapan prinsip syariah dalam pasar modal",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa MUI mengenai hukum pemanfaatan tanah bekas kuburan untuk fasilitas umum",
+    "label": "fatwa"
+  },
+  {
+    "text": "Bagaimana fatwa DSN MUI tentang lindung nilai syariah atas suku bunga interest rate hedging?",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa dewan syariah terkait batasan margin keuntungan dalam transaksi murabahah",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hukum penggunaan aplikasi dating jodoh syariah online menurut tinjauan fatwa",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa dewan syariah nasional tentang kartu debit syariah dan batasan penarikan tunai",
+    "label": "fatwa"
+  },
+  {
+    "text": "Keputusan ijtima ulama komisi fatwa se-indonesia tentang hukum pernikahan di bawah umur",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa MUI mengenai fatwa zakat perusahaan corporate zakat",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa DSN MUI tentang akad kafalah bil ujrah pada bank garansi syariah",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa komisi fatwa mengenai hukum shalat di atas kereta api atau pesawat terbang",
+    "label": "fatwa"
+  },
+  {
+    "text": "Hukum monetisasi konten video di platform media sosial menurut pandangan fatwa ulama",
+    "label": "fatwa"
+  },
+  {
+    "text": "Fatwa dewan syariah nasional mengenai akad pembiayaan sindikasi syariah",
+    "label": "fatwa"
+  },
+  {
+    "text": "Apa saja enam fardhu wudhu menurut mazhab Syafi'i?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Apakah menyentuh kulit istri membatalkan wudhu menurut madzhab Syafii?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Bagaimana tata cara tayamum dan apa saja sebab diperbolehkannya dalam kitab fiqih?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum najis air liur anjing dan tata cara mencucinya tujuh kali salah satunya dengan tanah",
+    "label": "fiqih"
+  },
+  {
+    "text": "Perbedaan darah haid nifas dan istihadhah serta ketentuan shalatnya dalam fiqih klasik",
+    "label": "fiqih"
+  },
+  {
+    "text": "Rukun dan tata cara mandi junub bagi orang yang berhadats besar menurut kitab Fathul Qarib",
+    "label": "fiqih"
+  },
+  {
+    "text": "Apakah keluar darah mimisan atau luka membatalkan wudhu menurut mazhab Hanafi?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Batas waktu mengusap khuff bagi musafir dan muqim dalam bab thaharah",
+    "label": "fiqih"
+  },
+  {
+    "text": "Bagaimana hukum air musta'mal untuk bersuci menurut pandangan empat mazhab?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum istinja menggunakan batu atau tisu basah jika tidak ada air",
+    "label": "fiqih"
+  },
+  {
+    "text": "Apakah bersentuhan kulit laki-laki dan perempuan bukan mahram membatalkan wudhu dalam mazhab Maliki?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Kriteria air dua kullah dalam ukuran liter menurut ulama mazhab Syafi'i",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum menyentuh mushaf Al-Quran bagi orang yang sedang berhadats kecil",
+    "label": "fiqih"
+  },
+  {
+    "text": "Tata cara menyucikan pakaian yang terkena najis mutawassithah 'ainiyyah dan hukmiyyah",
+    "label": "fiqih"
+  },
+  {
+    "text": "Rukun shalat ada berapa perkara menurut madzhab Syafi'i dalam kitab Safinatun Najah?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Bagaimana hukum membaca qunut pada shalat subuh menurut mazhab Syafi'i dan Hanafi?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum mengangkat kedua tangan saat ruku dan bangkit dari ruku menurut Bidayatul Mujtahid",
+    "label": "fiqih"
+  },
+  {
+    "text": "Tata cara sujud sahwi dan apa saja sebab-sebabnya dalam kitab Kifayatul Akhyar",
+    "label": "fiqih"
+  },
+  {
+    "text": "Syarat sah shalat jamak dan qashar bagi musafir serta batas minimal jarak marhalah",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum shalat berjamaah apakah fardhu ain fardhu kifayah atau sunnah muakkad?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Bagaimana posisi shaf makmum masbuq dan tata cara menyempurnakan rakaat yang tertinggal?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Syarat sah shalat jumat dan batas minimal jumlah empat puluh jamaah menurut mazhab Syafi'i",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum memejamkan mata saat shalat demi kekhusyuan menurut para fuqaha",
+    "label": "fiqih"
+  },
+  {
+    "text": "Tata cara sujud tilawah di dalam shalat dan di luar shalat beserta bacaannya",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum shalat gerhana matahari kusuf dan gerhana bulan khusuf menurut sunnah",
+    "label": "fiqih"
+  },
+  {
+    "text": "Bagaimana ketentuan shalat jenazah mulai dari takbir pertama hingga salam?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum melafalkan niat ushalli sebelum takbiratul ihram menurut mazhab Syafi'i",
+    "label": "fiqih"
+  },
+  {
+    "text": "Batasan aurat laki-laki dan wanita dalam shalat menurut empat mazhab",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum sujud syukur di luar shalat apakah wajib memiliki wudhu terlebih dahulu?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Kapan waktu shalat witir dilaksanakan dan berapa jumlah rakaat minimal dan maksimalnya?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Berapa nisab zakat emas dan perak serta kadar zakat yang harus dikeluarkan?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Syarat wajib zakat hewan ternak unta sapi dan kambing dalam fiqih klasik",
+    "label": "fiqih"
+  },
+  {
+    "text": "Siapa saja delapan asnaf yang berhak menerima penyaluran zakat menurut surat At-Taubah 60?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Apa saja perkara yang membatalkan puasa menurut kitab Fathul Mu'in?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Ketentuan fidyah bagi orang tua renta dan wanita hamil atau menyusui yang tidak berpuasa",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum mencicipi makanan saat berpuasa bagi juru masak apakah membatalkan puasa?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Besaran kaffarah bagi orang yang bersetubuh di siang hari bulan ramadhan",
+    "label": "fiqih"
+  },
+  {
+    "text": "Syarat sah i'tikaf di masjid pada sepuluh malam terakhir ramadhan menurut mazhab Syafi'i",
+    "label": "fiqih"
+  },
+  {
+    "text": "Apakah suntikan obat atau infus membatalkan puasa menurut kajian fuqaha?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Ketentuan waktu pembayaran zakat fitrah afdhal jawaz makruh dan haram",
+    "label": "fiqih"
+  },
+  {
+    "text": "Perbedaan antara rukun haji dan wajib haji serta konsekuensi dam jika ditinggalkan",
+    "label": "fiqih"
+  },
+  {
+    "text": "Tata cara tawaf wada dan siapa saja yang mendapatkan rukhshah keringanan tidak tawaf wada",
+    "label": "fiqih"
+  },
+  {
+    "text": "Rukun dan syarat sah akad nikah menurut kesepakatan empat mazhab",
+    "label": "fiqih"
+  },
+  {
+    "text": "Urutan wali nikah dari ayah kakek saudara laki-laki hingga wali hakim dalam fiqih",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum talak satu dua dan tiga serta tata cara rujuk bagi suami sebelum masa iddah habis",
+    "label": "fiqih"
+  },
+  {
+    "text": "Masa iddah bagi wanita yang diceraikan dalam keadaan hamil wafat suami atau quru'",
+    "label": "fiqih"
+  },
+  {
+    "text": "Ketentuan hak asuh anak hadhanah pasca perceraian menurut ulama fiqih",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum khulu' atau gugat cerai dengan tebusan harta dari istri kepada suami",
+    "label": "fiqih"
+  },
+  {
+    "text": "Bagaimana pembagian warisan faraidh untuk anak perempuan jika tidak ada anak laki-laki?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Bagian waris ibu dan ayah jika mayit meninggalkan keturunan anak atau cucu",
+    "label": "fiqih"
+  },
+  {
+    "text": "Pengertian 'ashabah binafsihi bi ghairihi dan ma'a ghairihi dalam ilmu faraidh",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum qisas bagi pembunuhan sengaja qatlul 'amd dan syarat pengampunan diyat",
+    "label": "fiqih"
+  },
+  {
+    "text": "Batasan potong tangan bagi pencuri sarîqah menurut ketentuan nisab fiqih jinayat",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum akad jual beli salam dan syarat kejelasan sifat barang pesanan",
+    "label": "fiqih"
+  },
+  {
+    "text": "Perbedaan antara akad syirkah inan mudharabah mufawadhah dan abdan",
+    "label": "fiqih"
+  },
+  {
+    "text": "Ketentuan khiyar majlis khiyar syarat dan khiyar aib dalam jual beli fiqih muamalah",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum sewa menyewa ijarah jika barang yang disewakan mengalami kerusakan di luar kelalaian",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum gadai rahn dan larangan mengambil manfaat dari barang gadaian",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum akad wakalah dan kapan akad perwakilan tersebut otomatis batal",
+    "label": "fiqih"
+  },
+  {
+    "text": "Ketentuan shulhu perdamaian dalam sengketa harta menurut fiqih muamalah",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum memakan daging binatang buruan yang diterkam anjing pemburu terlatih",
+    "label": "fiqih"
+  },
+  {
+    "text": "Syarat sah hewan sembelihan dan bacaan tasmiyah saat menyembelih hewan qurban",
+    "label": "fiqih"
+  },
+  {
+    "text": "Ketentuan nazar dan konsekuensi kaffarah jika melanggar sumpah nazar",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum luqathah penemuan barang berharga di jalan dan kewajiban mengumumkannya",
+    "label": "fiqih"
+  },
+  {
+    "text": "Tata cara memandikan jenazah orang yang mati syahid di medan perang",
+    "label": "fiqih"
+  },
+  {
+    "text": "Apakah batal wudhu jika menyentuh anak kecil bukan mahram menurut mazhab Syafi'i?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum membaca surat Al-Fatihah bagi makmum di belakang imam menurut empat mazhab",
+    "label": "fiqih"
+  },
+  {
+    "text": "Tata cara shalat sunnah gerhana matahari kusuf dan gerhana bulan khusuf menurut kitab Fiqhus Sunnah",
+    "label": "fiqih"
+  },
+  {
+    "text": "Kriteria binatang halal dan haram menurut ketentuan taring dan cakar dalam fiqih",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum memotong rambut dan kuku saat junub sebelum mandi besar menurut fuqaha",
+    "label": "fiqih"
+  },
+  {
+    "text": "Ketentuan syarat sah shalat qashar safar dan batas waktu menetap di tempat tujuan",
+    "label": "fiqih"
+  },
+  {
+    "text": "Bagaimana hukum talak yang diucapkan dalam keadaan marah memuncak ghadhab?",
+    "label": "fiqih"
+  },
+  {
+    "text": "Ketentuan khiyar ru'yah dalam jual beli barang yang belum pernah dilihat pembeli",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum memakan daging kuda zarafah dan biawak menurut madzhab empat",
+    "label": "fiqih"
+  },
+  {
+    "text": "Batas usia baligh bagi anak laki-laki dan perempuan dalam hukum fiqih taklif",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum akad ariyah pinjam meminjam barang dan ganti rugi jika barang rusak tanpa kelalaian",
+    "label": "fiqih"
+  },
+  {
+    "text": "Perbedaan antara najis mukhaffafah mutawassithah dan mughallazhah beserta cara menyucikannya",
+    "label": "fiqih"
+  },
+  {
+    "text": "Ketentuan shalat dhuha mulai dari waktu awal waktu afdhal dan batas akhir pelaksanaannya",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum safar bagi wanita tanpa mahram untuk ibadah haji menurut pandangan empat mazhab",
+    "label": "fiqih"
+  },
+  {
+    "text": "Tata cara shalat tahajjud dan jumlah rakaat maksimal menurut sunnah rasulullah",
+    "label": "fiqih"
+  },
+  {
+    "text": "Ketentuan fidyah puasa dan qadha puasa bagi orang sakit kronis yang tidak kunjung sembuh",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum akad wadi'ah amanah dan wadi'ah yad dhamanah dalam muamalah fiqih",
+    "label": "fiqih"
+  },
+  {
+    "text": "Hukum makan dan minum sambil berdiri menurut hadits dan penjelasan fuqaha",
+    "label": "fiqih"
+  },
+  {
+    "text": "Bagaimana hukum bunga bank menurut kajian fiqih riba klasik dan fatwa MUI?",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum akad nikah online melalui video call zoom ditinjau dari ittihadul majlis fiqih dan fatwa Kemenag",
+    "label": "keduanya"
+  },
+  {
+    "text": "Zakat saham dan reksadana syariah perbandingan fiqih perniagaan dan fatwa DSN MUI",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum bayi tabung menurut kaidah fiqih nasab dan fatwa majelis ulama indonesia",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum jual beli emas online secara kredit atau cicil menurut nash riba nasiah dan fatwa DSN",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum qurban sapi secara kolektif tujuh orang melalui lembaga filantropi baznas ditinjau dari fiqih qurban",
+    "label": "keduanya"
+  },
+  {
+    "text": "Zakat profesi atau penghasilan dasar fiqih qiyas zakat pertanian dan fatwa kontemporer",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum transplantasi ginjal dan donor organ dari sudut pandang maslahah mursalah dan fatwa ulama",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum bekerja di bank konvensional menurut kitab turats fikih riba dan fatwa dewan ulama",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum asuransi jiwa komersial ditinjau dari unsur gharar maysir fiqih dan fatwa takaful syariah",
+    "label": "keduanya"
+  },
+  {
+    "text": "Bagaimana hukum wakaf uang tunai menurut mazhab Hanafi dan fatwa MUI?",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum arisan emas online ditinjau dari kaidah fiqih sharaf dan fatwa dewan syariah",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum autopsi jenazah untuk kepentingan forensik ditinjau dari kehormatan mayit dan fatwa ulama",
+    "label": "keduanya"
+  },
+  {
+    "text": "Penggunaan dana zakat untuk pembangunan infrastruktur publik menurut fiqih asnaf fi sabilillah dan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum dropshipping di e-commerce ditinjau dari akad bai' ma'dum fiqih salam dan fatwa DSN",
+    "label": "keduanya"
+  },
+  {
+    "text": "Bagaimana hukum adopsi anak dan pengubahan nama nasab menurut fiqih faraidh dan fatwa resmi?",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum bank sperma dan donor ovum ditinjau dari hifdzun nasl dan keputusan komisi fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum shalat jumat di jalan raya karena kapasitas masjid penuh ditinjau dari fiqih mazhab dan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum mencicil biaya ibadah haji dengan dana talangan ditinjau dari istitha'ah fiqih dan fatwa DSN MUI",
+    "label": "keduanya"
+  },
+  {
+    "text": "Bagaimana hukum operasi ganti kelamin bagi transgender menurut fiqih taghyir khalqillah dan fatwa MUI?",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum memakan daging kultur laboratorium cultured meat ditinjau dari fiqih sembelihan dan fatwa halal",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum crowdfunding patungan modal online ditinjau dari akad syirkah fiqih dan regulasi fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Penentuan awal puasa ramadhan antara metode rukyatul hilal fiqih klasik vs hisab astronomi fatwa ormas",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum pengalihan piutang dan diskon tagihan ditinjau dari bai'ud dain fiqih dan fatwa perbankan syariah",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum sertifikasi halal produk kosmetik berbahan plasenta menurut fiqih najis dan fatwa LPPOM MUI",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum qurban hewan ternak yang terpapar penyakit mulut dan kuku PMK menurut fiqih cacat hewan dan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Bagaimana hukum uang muka atau down payment hangus dalam transaksi properti menurut urbun fiqih dan fatwa?",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum ganti rugi ta'widh dan denda keterlambatan ta'zir pada pembiayaan syariah menurut fiqih dan DSN",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum asuransi perjalanan travel insurance ditinjau dari darurat fiqih dan fatwa dewan syariah",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum pembayaran fidyah puasa menggunakan uang tunai ditinjau dari mazhab Hanafi dan fatwa kemenag",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum titip beli jastip barang luar negeri ditinjau dari akad wakalah bil ujrah fiqih dan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum pemotongan zakat penghasilan ASN secara otomatis menurut fiqih sultan dan fatwa MUI",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum pernikahan beda agama di indonesia ditinjau dari nash fiqih munakahat dan putusan fatwa MUI",
+    "label": "keduanya"
+  },
+  {
+    "text": "Bagaimana hukum operasi sedot lemak liposuction ditinjau dari maslahah thibbiya fiqih dan fatwa?",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum memandikan jenazah menggunakan kantong plastik kedap air saat wabah menurut fiqih dan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum gadai emas syariah rahn di pegadaian syariah ditinjau dari larangan qardh jarra manfa'ah dan fatwa DSN",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum royalti hak cipta intelektual hak paten ditinjau dari huquq ma'nawiyyah fiqih dan fatwa MUI",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum asuransi unit link produk investasi ditinjau dari gharar fiqih dan ketentuan fatwa DSN",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum kremasi jenazah muslim dalam kondisi wabah darurat ditinjau dari fiqih janazah dan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum zakat fitrah dibayarkan dalam bentuk beras kemasan premium atau uang menurut empat mazhab dan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Bagaimana hukum jual beli akun game atau virtual item ditinjau dari mal mutaqawwam fiqih dan fatwa?",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum konsumsi bekicot dan lintah untuk obat herbal ditinjau dari hasyarat fiqih dan fatwa MUI",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum akad istishna' pada pembiayaan pembangunan rumah KPR inden menurut fiqih dan fatwa DSN MUI",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum penggunaan dana non halal jasa giro bank untuk fasilitas umum menurut fiqih dan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum shalat tarawih berjamaah dipimpin imam via streaming youtube ditinjau dari fiqih qudwah dan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum penyembelihan unggas secara mekanik dengan mesin otomatis menurut fiqih dzabihah dan fatwa halal",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum sewa rahim surrogacy bagi pasutri infertil menurut kaidah fiqih munakahat dan fatwa MUI",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum suntik botox dan tanam benang untuk perawatan wajah menurut fiqih kecantikan dan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum trading komoditi berjangka index futures ditinjau dari qimar fiqih dan fatwa pasar modal syariah",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum pembayaran dam haji tamattu' melalui lembaga penyalur di tanah air menurut fiqih dan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum pemanfaatan dana riba dari bunga bank untuk pembangunan toilet masjid menurut fiqih dan fatwa ulama",
+    "label": "keduanya"
+  },
+  {
+    "text": "Bagaimana hukum jual beli cryptocurrency bitcoin ditinjau dari sil'ah fiqih mabi' dan fatwa MUI?",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum suntik vaksin saat berpuasa ditinjau dari manfadza maftuh fiqih dan fatwa komisi fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum donor ASI dan bank air susu ibu ditinjau dari fiqih radha'ah mahram dan fatwa MUI",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum shalat dengan pakaian bernoda tinta atau cat yang menghalangi air ditinjau dari fiqih thaharah dan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Bagaimana hukum penggabungan dua akad shafqatayn fi shafqah dalam transaksi leasing modern menurut fiqih dan fatwa?",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum zakat atas harta kekayaan hasil korupsi atau uang haram menurut kaidah fiqih mal haram dan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum membatalkan penerbangan sepihak ditinjau dari fasakh akad ijarah fiqih dan regulasi syariah",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum sedot lemak estetik ditinjau dari dharurah fiqih dan fatwa dewan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum pernikahan virtual akad nikah metaverse ditinjau dari majlis akad fiqih dan fatwa kontemporer",
+    "label": "keduanya"
+  },
+  {
+    "text": "Bagaimana hukum penggunaan robot kecerdasan buatan AI untuk khutbah jumat ditinjau dari syarat khatib fiqih dan fatwa?",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum konsumsi daging hasil rekayasa genetik kloning ditinjau dari fiqih thayyibat dan fatwa halal",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum transaksi paylater dengan denda keterlambatan disalurkan ke dana sosial ditinjau dari ta'zir bil mal dan fatwa DSN",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum jual beli followers dan likes media sosial ditinjau dari gharar tadlis fiqih dan fatwa ulama",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum pemakaman mayit di luar angkasa ditinjau dari kewajiban dafnul mayyit fi al-ardh dan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Bagaimana hukum pembekuan sel telur egg freezing bagi wanita belum menikah ditinjau dari fiqih dan fatwa?",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum investasi robot trading forex otomatis ditinjau dari maisir fiqih dan fatwa MUI",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum asuransi kerugian syariah takaful umum ditinjau dari akad mudharabah musytarakah fiqih dan fatwa DSN",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum qurban kambing betina menurut mazhab Syafi'i dan fatwa dinas peternakan syariah",
+    "label": "keduanya"
+  },
+  {
+    "text": "Bagaimana hukum sewa apartemen harian untuk perbuatan maksiat ditinjau dari i'anah 'alal ma'shiyah fiqih dan fatwa?",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum pemberian insentif bonus referal multi level marketing ditinjau dari ju'alah fiqih dan fatwa DSN",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum transaksi repurchase agreement repo syariah ditinjau dari akad bai'ul 'inah fiqih dan fatwa DSN MUI",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum penerbitan green sukuk obligasi ramah lingkungan ditinjau dari maqashid syariah fiqih dan fatwa pasar modal",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum pinjaman modal usaha dengan sistem bagi hasil ditinjau dari mudharabah fiqih dan regulasi OJK syariah",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum pemotongan hewan kurban dengan stun pemingsanan listrik ditinjau dari fiqih dzabihah dan fatwa MUI",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum zakat fitrah dibayar menggunakan beras impor non-lokal menurut mazhab Syafi'i dan fatwa Baznas",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum donor darah saat puasa ramadhan ditinjau dari ifthar fiqih dan fatwa ulama",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum akad murabahah bil wakalah pada pembiayaan barang konsumtif ditinjau dari fiqih dan fatwa DSN",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum pemanfaatan teknologi kecerdasan buatan AI untuk menggambar makhluk bernyawa menurut fiqih taswir dan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum penggunaan dana haji untuk investasi infrastruktur negara menurut fiqih amanah dan fatwa MUI",
+    "label": "keduanya"
+  },
+  {
+    "text": "Hukum penarikan biaya administrasi bulanan pada tabungan wadiah bank syariah menurut fiqih dan fatwa",
+    "label": "keduanya"
+  },
+  {
+    "text": "Bagaimana cara membuat aplikasi web dengan FastAPI dan React?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Tuliskan kode python untuk algoritma sorting quicksort dan mergesort",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana cara memperbaiki error blue screen BSOD di Windows 11?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Jelaskan perbedaan antara database SQL relasional dan NoSQL MongoDB",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana cara melakukan konfigurasi Docker compose untuk microservices?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Apa perbedaan fungsi let const dan var pada bahasa pemrograman JavaScript?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana cara setting remote repository Git di GitHub dan GitLab?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Jelaskan cara kerja arsitektur Transformer dan attention mechanism pada deep learning",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana cara optimasi query database PostgreSQL yang lambat?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Trik membersihkan file cache dan temporary files pada komputer laptop",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Cara membuat REST API otentikasi JWT dengan framework ExpressJS NodeJS",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana cara install sistem operasi Ubuntu Linux dual boot dengan Windows?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Jelaskan konsep dasar Object Oriented Programming OOP encapsulation inheritance",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana cara mengatasi memori leak pada aplikasi mobile React Native?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Rekomendasi text editor terbaik untuk web developer pemula",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Berapa jarak rata-rata dari planet bumi menuju ke matahari?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Jelaskan proses fotosintesis pada tumbuhan klorofil secara biokimia",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Apa perbedaan pembelahan sel mitosis dan meiosis pada biologi?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana rumus menghitung percepatan gravitasi bumi menurut hukum Newton?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Mengapa langit pada siang hari berwarna biru sedangkan saat terbenam berwarna jingga?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Berapa kecepatan cahaya dalam ruang hampa menurut teori relativitas Einstein?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Sebutkan lapisan-lapisan atmosfer bumi dari troposfer hingga eksosfer",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana proses terjadinya gerhana matahari cincin dan gerhana bulan total?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Apa yang menyebabkan terjadinya fenomena pasang surut air laut di pantai?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Jelaskan siklus daur air hidrologi mulai dari evaporasi hingga presipitasi",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Berapa jumlah planet dalam tata surya kita setelah pluto didegradasi?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Apa penyebab gempa tektonik lempeng bumi dan tsunami di dasar laut?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana cara menghitung volume dan luas permukaan bangun ruang bola?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Jelaskan perbedaan antara unsur senyawa dan campuran dalam kimia dasar",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Mengapa besi bisa berkarat jika terkena udara lembab dan air?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Resep membuat nasi goreng spesial ala restoran yang gurih dan enak",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana cara membuat adonan roti tawar yang lembut dan mengembang sempurna?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Tips merawat mesin mobil transmisi otomatis matic agar tidak cepat rusak",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Berapa tekanan angin ban standar untuk mobil keluarga Avanza dan Xenia?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Kapan jadwal pertandingan final liga champions eropa musim ini?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Siapakah pemain sepak bola dengan penghargaan Ballon d'Or terbanyak sepanjang sejarah?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Rekomendasi film aksi bioskop terbaik dengan rating tinggi tahun ini",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana cara menyeduh kopi manual brew V60 dengan rasio yang pas?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Tips menurunkan berat badan dengan diet sehat dan defisit kalori tanpa lemas",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Cara merawat tanaman hias monstera agar daunnya cepat pecah dan segar",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Berapa suhu ideal AC kamar tidur agar hemat listrik dan tidur nyenyak?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Cara mengatasi hidung tersumbat karena flu batuk secara alami di rumah",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Siapakah presiden pertama yang memimpin Amerika Serikat?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Kapan tanggal proklamasi kemerdekaan Republik Indonesia diperingati?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Tips memilih sepatu lari marathon yang nyaman dan mencegah cedera lutut",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Berapa harga saham Apple dan Nvidia di bursa NASDAQ hari ini?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Cara membuat pupuk kompos organik dari sisa sampah dapur sayuran",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Panduan rute wisata backpacker keliling kota Yogyakarta selama 3 hari",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Cara membersihkan noda minyak membandel pada pakaian putih",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Berapa jumlah penduduk negara indonesia berdasarkan sensus bps terbaru?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana cara membuat diagram arsitektur microservices dengan draw.io?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Tips belajar bahasa inggris secara otodidak dari level pemula sampai lancar",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana cara kerja mesin turbocharger pada mobil bensin dan diesel?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Jelaskan sejarah berdirinya peradaban mesir kuno dan piramida giza",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Cara mengatasi sakit pinggang akibat terlalu lama duduk di depan komputer",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Berapa estimasi biaya renovasi rumah tipe 36 menjadi dua lantai?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana cara merakit komputer PC gaming dengan budget 10 juta rupiah?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Tips menata pencahayaan ruangan kamar agar terlihat lebih estetik dan luas",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Cara membuat kue brownis kukus coklat yang lumer dan lembut",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Jelaskan perbedaan sistem penggerak roda depan FWD dan penggerak belakang RWD",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana cara menghapus background foto secara otomatis menggunakan Photoshop?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Panduan memilih lensa kamera mirrorless untuk kebutuhan fotografi portrait",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Apa saja faktor penyebab inflasi mata uang dan kenaikan suku bunga bank sentral?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Cara mengatasi rambut rontok dan ketombe membandel dengan bahan alami",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Berapa jarak orbit stasiun luar angkasa ISS dari permukaan bumi?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Tips memulai investasi reksadana pasar uang untuk pemula",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana teknik dasar bermain gitar akustik chord kunci gantung?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Cara mengatasi laptop cepat panas overheating saat rendering video",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana cara membuat kopi espresso yang tebal cream-nya dengan mesin rumahan?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Tips memilih oli mesin yang tepat untuk motor matic 150cc",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Berapa durasi waktu tidur yang ideal untuk orang dewasa menurut riset kesehatan?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Cara memperbaiki resleting jaket atau tas yang macet dan rusak",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana cara menanam cabai rawit di pot polybag agar berbuah lebat?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Rekomendasi destinasi wisata alam di pulau Lombok selain gili trawangan",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Jelaskan sejarah ditemukannya mesin uap oleh James Watt pada revolusi industri",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Tips merawat baterai smartphone agar tidak cepat kembung dan drop",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Bagaimana teknik dasar renang gaya dada atau gaya katak yang benar?",
+    "label": "di_luar_cakupan"
+  },
+  {
+    "text": "Cara menghilangkan bau apek pada helm dan sepatu olahraga",
+    "label": "di_luar_cakupan"
+  }
 ]
