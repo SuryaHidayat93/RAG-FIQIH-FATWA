@@ -1,11 +1,20 @@
-import json
-from typing import Dict, Literal
+from typing import Dict, Literal, Optional
 from pydantic import BaseModel, Field
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
 from src.config import settings
 from src.state import RAGState
 from src.text_processing.arabic_normalizer import normalize_islamic_text
+from src.router.indobert_router import IndoBERTRouter
+
+_indobert_router: Optional[IndoBERTRouter] = None
+
+
+def get_indobert_router() -> IndoBERTRouter:
+    global _indobert_router
+    if _indobert_router is None:
+        _indobert_router = IndoBERTRouter()
+    return _indobert_router
 
 
 class QueryUnderstandingOutput(BaseModel):
@@ -17,6 +26,17 @@ class QueryUnderstandingOutput(BaseModel):
     )
     reasoning: str = Field(description="Alasan singkat penentuan route dan rewrite.")
 
+
+REWRITE_ONLY_PROMPT = ChatPromptTemplate.from_messages([
+    (
+        "system",
+        "Anda bertugas melakukan query rewrite untuk pencarian teks fikih dan fatwa. Tulis ulang pertanyaan agar menggunakan istilah baku fikih Arab/Indonesia untuk mesin pencari. Tulis HANYA satu kalimat hasil rewrite.",
+    ),
+    (
+        "human",
+        "Pertanyaan: {query}",
+    ),
+])
 
 ROUTER_PROMPT = ChatPromptTemplate.from_messages([
     (
@@ -41,10 +61,45 @@ Keluarkan HANYA JSON sesuai format skema.""",
 
 
 def query_understanding_node(state: RAGState) -> Dict:
-    """Node 1: Normalisasi teks + rewrite + routing domain."""
+    """Node 1: Normalisasi teks + rewrite + routing domain via IndoBERT atau LLM."""
     query = state["query"]
     normalized = normalize_islamic_text(query)
+    retry_count = state.get("retry_count", 0)
 
+    # Mode 1: IndoBERT Router
+    if settings.router_model_type == "indobert":
+        router = get_indobert_router()
+        route, confidence = router.predict(normalized)
+
+        # Jika di luar cakupan, lewati query rewrite hemat LLM call
+        if route == "di_luar_cakupan":
+            return {
+                "normalized_query": normalized,
+                "rewritten_query": normalized,
+                "route": "di_luar_cakupan",
+                "retry_count": retry_count,
+            }
+
+        # Lakukan query rewrite ringan via LLM
+        try:
+            llm = ChatOllama(
+                base_url=settings.ollama_base_url,
+                model=settings.primary_model,
+                temperature=0.0,
+            )
+            rewrite_res = (REWRITE_ONLY_PROMPT | llm).invoke({"query": normalized})
+            rewritten = rewrite_res.content.strip() if hasattr(rewrite_res, "content") else normalized
+        except Exception:
+            rewritten = normalized
+
+        return {
+            "normalized_query": normalized,
+            "rewritten_query": rewritten,
+            "route": route,
+            "retry_count": retry_count,
+        }
+
+    # Mode 2: LLM Router Fallback
     llm = ChatOllama(
         base_url=settings.ollama_base_url,
         model=settings.primary_model,
@@ -63,13 +118,12 @@ def query_understanding_node(state: RAGState) -> Dict:
             "normalized_query": normalized,
             "rewritten_query": result.rewritten_query,
             "route": result.route,
-            "retry_count": state.get("retry_count", 0),
+            "retry_count": retry_count,
         }
     except Exception:
-        # Fallback deterministik jika LLM gagal format JSON
         return {
             "normalized_query": normalized,
             "rewritten_query": normalized,
             "route": "keduanya",
-            "retry_count": state.get("retry_count", 0),
+            "retry_count": retry_count,
         }

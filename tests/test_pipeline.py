@@ -73,6 +73,23 @@ def test_bm25_save_and_load(tmp_path):
     assert res[0]["id"] == "2"
 
 
+def test_indobert_router_fallback():
+    from src.router.indobert_router import IndoBERTRouter
+
+    router = IndoBERTRouter()
+    # Test deteksi fatwa
+    route_fatwa, _ = router.predict("Bagaimana fatwa DSN MUI tentang crypto?")
+    assert route_fatwa == "fatwa"
+
+    # Test deteksi fiqih
+    route_fiqih, _ = router.predict("Apa saja rukun dan fardhu wudhu menurut madzhab syafii?")
+    assert route_fiqih == "fiqih"
+
+    # Test deteksi di luar cakupan
+    route_oos, _ = router.predict("Bagaimana cara membuat web dengan python fastapi?")
+    assert route_oos == "di_luar_cakupan"
+
+
 def test_langgraph_compilation():
     # Pastikan graph berhasil dikompilasi dan memiliki nodes yang sesuai
     assert app_graph is not None

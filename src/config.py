@@ -10,6 +10,11 @@ class Settings(BaseSettings):
     primary_model: str = "llama3.1:8b"
     comparison_model: str = "qwen2.5:7b"
 
+    # Router Model
+    router_model_type: str = "indobert"  # "indobert" atau "llm"
+    indobert_model_path: str = "./models/indobert_router"
+    indobert_base_model: str = "indobenchmark/indobert-base-p1"
+
     # Embedding & Reranker
     embedding_model_name: str = "BAAI/bge-m3"
     reranker_model_name: str = "BAAI/bge-reranker-v2-m3"
