@@ -7,6 +7,9 @@ venv/
 .env
 data/qdrant_storage/
 data/bm25/
+*.pdf
+data/fatwa/*.pdf
+data/fiqih/raw_fathul_qarib/
 .pytest_cache/
 .coverage
 htmlcov/

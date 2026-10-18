@@ -81,9 +81,19 @@ Pipeline dirancang dengan arsitektur **Corrective RAG (CRAG)** dan **Self-RAG (F
   - Bab 17 (Peradilan / Qadha & Saksi): 42 chunk
   - Bab 18 (Pembebasan Budak): 11 chunk
 
----
+## 6. Pembersihan & Ekstraksi Korpus Fatwa PDF
+- **Sumber Data**: 572 berkas PDF Fatwa MUI dan DSN-MUI (fintech, e-money, perbankan, pasar modal, sosial, medis, pangan halal).
+- **Pembersihan Mendalam ([scripts/ingest_fatwa_pdf.py](scripts/ingest_fatwa_pdf.py))**:
+  - **Margin Filtering (Bounding Box PyMuPDF)**: Membuang running header atas ($y < 55$) dan running footer bawah ($y > \text{height} - 55$).
+  - **Hyphenation Repair**: Menyambung pemotongan kata di akhir baris (`penda-\npat` $\rightarrow$ `pendapat`).
+  - **Pembersihan Nomor Halaman**: Mengeliminasi 1.718 nomor halaman terisolasi di baris mandiri.
+  - **Pembersihan Footer Kontak/Kantor**: Membuang teks alamat kantor, nomor telepon, fax, dan website sekretariat.
+  - **Filter Noise Daftar Absensi/Peserta**: Mengidentifikasi dan membuang 95 chunk yang murni berisi daftar nama peserta/gelar tanpa substansi hukum fatwa.
+  - **Perbaikan Karakter**: Memperbaiki tanda petik dan tanda tanya pada kata serapan istilah syariah (*Ijtima'*, *Syar'i*, *Kaidah*).
+- **Hasil Korpus Fatwa Bersih**: [data/fatwa/fatwa_pdf_corpus.json](data/fatwa/fatwa_pdf_corpus.json) berisi **10.983 dokumen pasal/chunk fatwa bersih**.
+- **Persistensi BM25 Fatwa**: Selesai dibangun dan tersimpan di [data/bm25/fatwa_bm25.pkl](data/bm25/fatwa_bm25.pkl) (terverifikasi presisi tinggi).
 
-## 6. Verifikasi & Pengujian
+## 7. Verifikasi & Pengujian
 - Unit test terdaftar di [tests/test_pipeline.py](tests/test_pipeline.py):
   - Normalisasi teks Arab & Latin.
   - Tokenisasi BM25.
@@ -93,14 +103,13 @@ Pipeline dirancang dengan arsitektur **Corrective RAG (CRAG)** dan **Self-RAG (F
   - Kompilasi StateGraph LangGraph.
 - Status pengujian: **6/6 passed (100%)**.
 
-
-
-## 7. Status & Langkah Berikutnya
+## 8. Status & Langkah Berikutnya
 - [x] Desain arsitektur CRAG + Self-RAG
 - [x] StateGraph LangGraph & nodes pipeline
 - [x] Normalizer istilah syariah & Arab
 - [x] Persistensi index BM25
 - [x] Scaffolding IndoBERT Router + 335 dataset latih
 - [x] Ekstraksi & pembersihan 543 dokumen Fathul Qarib
-- [x] Ingest data bersih ke Qdrant (dense embedding BGE-M3) & build index BM25 disk
-- [ ] Pengujian retrieval end-to-end dengan query fikih riil
+- [x] Ekstraksi, pembersihan mendalam, & BM25 indexing 10.987 dokumen Fatwa PDF
+- [ ] Penyelesaian dense embedding Qdrant untuk korpus fatwa
+- [ ] Pengujian retrieval end-to-end dengan query fikih & fatwa riil

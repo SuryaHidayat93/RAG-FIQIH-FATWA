@@ -43,6 +43,9 @@ def load_corpus_from_dir(directory_path: str, default_corpus: str) -> List[Docum
 
 
 def index_data():
+    import torch
+    torch.set_num_threads(14)
+
     print("=== Memulai Inisialisasi Hybrid Indexing (Dense Qdrant + BM25 Disk) ===")
     dense = DenseRetriever()
     dense.ensure_collection("fatwa")
@@ -59,42 +62,63 @@ def index_data():
             print(f"Peringatan: Tidak ada dokumen di {dir_path}")
             continue
 
-        print(f"\n[1/2] Menghitung embedding dense (BGE-M3) untuk {len(docs)} dokumen '{corpus_name}'...")
-        texts = [d["content"] for d in docs]
-        vectors = dense.embed_texts(texts, batch_size=32, show_progress_bar=True)
+        print(f"\n--- Memproses Korpus '{corpus_name}' ({len(docs)} dokumen) ---")
 
-        print(f"Mengirim {len(docs)} points ke koleksi Qdrant '{corpus_name}'...")
-        points = []
-        for i, (doc, vec) in enumerate(zip(docs, vectors), start=1):
-            points.append(
-                PointStruct(
-                    id=i,
-                    vector=vec,
-                    payload={
-                        "doc_id": doc.get("id"),
-                        "content": doc["content"],
-                        "corpus": doc["corpus"],
-                        "metadata": doc.get("metadata", {}),
-                    },
-                )
-            )
-
-        # Batch upsert ke Qdrant
-        batch_size = 100
-        for b_start in range(0, len(points), batch_size):
-            b_points = points[b_start : b_start + batch_size]
-            dense.client.upsert(collection_name=corpus_name, points=b_points)
-        print(f"✓ Koleksi Qdrant '{corpus_name}' berhasil di-upsert ({len(points)} vektor)!")
-
-        print(f"[2/2] Membangun dan menyimpan index BM25 '{corpus_name}' ke disk...")
+        # 1. BM25 Indexing terlebih dahulu (cepat & langsung tersimpan ke disk)
+        print(f"[1/2] Membangun dan menyimpan index BM25 '{corpus_name}' ke disk...")
         bm25_index = CorpusBM25Index(corpus_name=corpus_name)
         bm25_index.build_index(docs)
         saved_path = bm25_index.save()
         print(f"✓ Index BM25 '{corpus_name}' disimpan ke: {saved_path}")
 
-    print("\n=== Seluruh Indexing Korpus Fatwa & Fiqih Berhasil Selesai ===")
+        # 2. Qdrant Dense Embedding
+        collection_info = dense.client.get_collection(corpus_name)
+        existing_points = collection_info.points_count or 0
+        print(f"[2/2] Koleksi Qdrant '{corpus_name}' saat ini memiliki {existing_points} vektor (Target: {len(docs)}).")
 
-    print("\n=== Seluruh Indexing Korpus Fatwa & Fiqih Selesai ===")
+        if existing_points >= len(docs):
+            print(f"✓ Koleksi Qdrant '{corpus_name}' sudah terisi lengkap ({existing_points} vektor). Lewati dense embedding.")
+            continue
+
+        print(f"Menghitung embedding dense (BGE-M3) dalam batch (64)...")
+        # Inisialisasi/reset koleksi jika data bertambah banyak agar ID selaras
+        if existing_points > 0 and existing_points < len(docs):
+            dense.client.delete_collection(corpus_name)
+            dense.ensure_collection(corpus_name)
+
+        chunk_size = 500
+        total_docs = len(docs)
+
+        for start_idx in range(0, total_docs, chunk_size):
+            end_idx = min(start_idx + chunk_size, total_docs)
+            batch_docs = docs[start_idx:end_idx]
+            batch_texts = [d["content"] for d in batch_docs]
+
+            print(f"  Embedding batch [{start_idx + 1} - {end_idx} / {total_docs}]...")
+            vectors = dense.embed_texts(batch_texts, batch_size=64, show_progress_bar=False)
+
+            points = []
+            for offset, (doc, vec) in enumerate(zip(batch_docs, vectors)):
+                pt_id = start_idx + offset + 1
+                points.append(
+                    PointStruct(
+                        id=pt_id,
+                        vector=vec,
+                        payload={
+                            "doc_id": doc.get("id"),
+                            "content": doc["content"],
+                            "corpus": doc["corpus"],
+                            "metadata": doc.get("metadata", {}),
+                        },
+                    )
+                )
+
+            dense.client.upsert(collection_name=corpus_name, points=points)
+            print(f"  ✓ {end_idx} dari {total_docs} vektor berhasil di-upsert ke Qdrant.")
+
+        print(f"✓ Koleksi Qdrant '{corpus_name}' berhasil di-upsert penuh ({total_docs} vektor)!")
+
+    print("\n=== Seluruh Indexing Korpus Fatwa & Fiqih Berhasil Selesai ===")
 
 
 if __name__ == "__main__":
