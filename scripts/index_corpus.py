@@ -1,12 +1,19 @@
 """Script untuk indexing korpus Fatwa dan Fiqih dari file JSON ke Qdrant dan file BM25 disk."""
 import json
 import os
+import sys
 from pathlib import Path
+
+# Pastikan root direktori proyek ada di sys.path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from typing import Any, Dict, List
 from qdrant_client.models import PointStruct
 from src.retrieval.dense_retriever import DenseRetriever
 from src.retrieval.bm25_retriever import CorpusBM25Index
 from src.state import Document
+
+sys.stdout.reconfigure(encoding="utf-8")
 
 
 def load_corpus_from_dir(directory_path: str, default_corpus: str) -> List[Document]:
@@ -17,7 +24,7 @@ def load_corpus_from_dir(directory_path: str, default_corpus: str) -> List[Docum
     if not p.exists():
         return all_docs
 
-    for json_file in p.glob("*.json"):
+    for json_file in sorted(p.glob("*.json")):
         try:
             with open(json_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -52,17 +59,19 @@ def index_data():
             print(f"Peringatan: Tidak ada dokumen di {dir_path}")
             continue
 
-        print(f"\n[1/2] Indexing {len(docs)} dokumen ke Qdrant '{corpus_name}'...")
+        print(f"\n[1/2] Menghitung embedding dense (BGE-M3) untuk {len(docs)} dokumen '{corpus_name}'...")
         texts = [d["content"] for d in docs]
-        vectors = dense.embed_texts(texts)
+        vectors = dense.embed_texts(texts, batch_size=32, show_progress_bar=True)
 
+        print(f"Mengirim {len(docs)} points ke koleksi Qdrant '{corpus_name}'...")
         points = []
-        for i, (doc, vec) in enumerate(zip(docs, vectors)):
+        for i, (doc, vec) in enumerate(zip(docs, vectors), start=1):
             points.append(
                 PointStruct(
-                    id=i + 1,
+                    id=i,
                     vector=vec,
                     payload={
+                        "doc_id": doc.get("id"),
                         "content": doc["content"],
                         "corpus": doc["corpus"],
                         "metadata": doc.get("metadata", {}),
@@ -70,14 +79,20 @@ def index_data():
                 )
             )
 
-        dense.client.upsert(collection_name=corpus_name, points=points)
-        print(f"✓ Koleksi Qdrant '{corpus_name}' berhasil di-upsert!")
+        # Batch upsert ke Qdrant
+        batch_size = 100
+        for b_start in range(0, len(points), batch_size):
+            b_points = points[b_start : b_start + batch_size]
+            dense.client.upsert(collection_name=corpus_name, points=b_points)
+        print(f"✓ Koleksi Qdrant '{corpus_name}' berhasil di-upsert ({len(points)} vektor)!")
 
         print(f"[2/2] Membangun dan menyimpan index BM25 '{corpus_name}' ke disk...")
         bm25_index = CorpusBM25Index(corpus_name=corpus_name)
         bm25_index.build_index(docs)
         saved_path = bm25_index.save()
         print(f"✓ Index BM25 '{corpus_name}' disimpan ke: {saved_path}")
+
+    print("\n=== Seluruh Indexing Korpus Fatwa & Fiqih Berhasil Selesai ===")
 
     print("\n=== Seluruh Indexing Korpus Fatwa & Fiqih Selesai ===")
 

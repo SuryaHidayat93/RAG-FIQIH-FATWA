@@ -93,7 +93,7 @@ Pipeline dirancang dengan arsitektur **Corrective RAG (CRAG)** dan **Self-RAG (F
   - Kompilasi StateGraph LangGraph.
 - Status pengujian: **6/6 passed (100%)**.
 
----
+
 
 ## 7. Status & Langkah Berikutnya
 - [x] Desain arsitektur CRAG + Self-RAG
@@ -102,5 +102,5 @@ Pipeline dirancang dengan arsitektur **Corrective RAG (CRAG)** dan **Self-RAG (F
 - [x] Persistensi index BM25
 - [x] Scaffolding IndoBERT Router + 335 dataset latih
 - [x] Ekstraksi & pembersihan 543 dokumen Fathul Qarib
-- [ ] Ingest data bersih ke Qdrant (dense embedding BGE-M3) & build index BM25 disk
+- [x] Ingest data bersih ke Qdrant (dense embedding BGE-M3) & build index BM25 disk
 - [ ] Pengujian retrieval end-to-end dengan query fikih riil

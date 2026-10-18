@@ -36,8 +36,18 @@ class DenseRetriever:
                 vectors_config=VectorParams(size=vector_size, distance=Distance.COSINE),
             )
 
-    def embed_texts(self, texts: List[str]) -> List[List[float]]:
-        embeddings = self.model.encode(texts, normalize_embeddings=True)
+    def embed_texts(
+        self,
+        texts: List[str],
+        batch_size: int = 32,
+        show_progress_bar: bool = False,
+    ) -> List[List[float]]:
+        embeddings = self.model.encode(
+            texts,
+            batch_size=batch_size,
+            show_progress_bar=show_progress_bar,
+            normalize_embeddings=True,
+        )
         return embeddings.tolist()
 
     def search(
@@ -59,19 +69,29 @@ class DenseRetriever:
             ]
             qdrant_filter = Filter(must=conditions)
 
-        response = self.client.search(
-            collection_name=collection_name,
-            query_vector=query_vector,
-            query_filter=qdrant_filter,
-            limit=top_k,
-        )
+        # Kompatibilitas qdrant-client modern (query_points) vs legacy (search)
+        if hasattr(self.client, "query_points"):
+            response = self.client.query_points(
+                collection_name=collection_name,
+                query=query_vector,
+                query_filter=qdrant_filter,
+                limit=top_k,
+            )
+            hits = response.points
+        else:
+            hits = self.client.search(
+                collection_name=collection_name,
+                query_vector=query_vector,
+                query_filter=qdrant_filter,
+                limit=top_k,
+            )
 
         documents: List[Document] = []
-        for hit in response:
+        for hit in hits:
             payload = hit.payload or {}
             documents.append(
                 Document(
-                    id=str(hit.id),
+                    id=str(payload.get("doc_id") or hit.id),
                     content=payload.get("content", ""),
                     corpus=corpus,
                     score=float(hit.score),
