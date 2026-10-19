@@ -51,10 +51,19 @@ Jawaban + Sitasi Spesifik (Kitab, Bab, Hal, atau No. Fatwa)
 
 5. **Jalankan API (FastAPI)**:
    ```bash
-   uvicorn src.api.main:app --reload --port 8000
+   uvicorn main:app --reload --port 8000
+   ```
+   Atau:
+   ```bash
+   python main.py
    ```
 
 6. **Jalankan UI (Streamlit)**:
    ```bash
-   streamlit run src/ui/app.py
+   streamlit run app.py
+   ```
+
+7. **Tanya Langsung via Terminal (CLI)**:
+   ```bash
+   python scripts/ask.py "Pertanyaan hukum Islam / fatwa"
    ```
