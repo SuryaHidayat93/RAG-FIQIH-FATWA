@@ -11,6 +11,11 @@ from src.nodes.faithfulness_node import faithfulness_node
 
 def out_of_scope_node(state: RAGState) -> dict:
     """Menangani pertanyaan di luar domain syariah dan hukum Islam."""
+    print(f"\n[OUT OF SCOPE NODE]", flush=True)
+    print(f"  * Status             : Menghentikan pipeline (Pertanyaan non-syariah)", flush=True)
+    print("=" * 80, flush=True)
+    print(f"[RAG PIPELINE] SELESAI (OUT OF SCOPE)", flush=True)
+    print("=" * 80 + "\n", flush=True)
     return {
         "generation": "Pertanyaan ini berada di luar cakupan fiqih dan fatwa hukum Islam. Sistem ini dikhususkan untuk pencarian hukum syariah, perbandingan mazhab, dan fatwa keagamaan.",
         "citations": [],

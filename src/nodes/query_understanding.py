@@ -62,17 +62,31 @@ Keluarkan HANYA JSON sesuai format skema.""",
 
 def query_understanding_node(state: RAGState) -> Dict:
     """Node 1: Normalisasi teks + rewrite + routing domain via IndoBERT atau LLM."""
+    import time
+
+    t_start = time.time()
     query = state["query"]
     normalized = normalize_islamic_text(query)
     retry_count = state.get("retry_count", 0)
+
+    print("\n" + "=" * 80, flush=True)
+    print(f"[RAG PIPELINE] MEMULAI PEMROSESAN PERTANYAAN", flush=True)
+    print(f"Pertanyaan Asli  : \"{query}\"", flush=True)
+    print("=" * 80, flush=True)
+    print(f"\n[1/6] QUERY UNDERSTANDING & ROUTING", flush=True)
+    print(f"  * Normalisasi Teks   : \"{normalized}\"", flush=True)
 
     # Mode 1: IndoBERT Router
     if settings.router_model_type == "indobert":
         router = get_indobert_router()
         route, confidence = router.predict(normalized)
+        print(f"  * Router Model       : IndoBERT (Confidence: {confidence:.2%})", flush=True)
+        print(f"  * Keputusan Rute     : {route.upper()}", flush=True)
 
         # Jika di luar cakupan, lewati query rewrite hemat LLM call
         if route == "di_luar_cakupan":
+            elapsed = time.time() - t_start
+            print(f"  * Catatan            : Pertanyaan teridentifikasi di luar lingkup syariah ({elapsed:.2f}s)", flush=True)
             return {
                 "normalized_query": normalized,
                 "rewritten_query": normalized,
@@ -89,8 +103,13 @@ def query_understanding_node(state: RAGState) -> Dict:
             )
             rewrite_res = (REWRITE_ONLY_PROMPT | llm).invoke({"query": normalized})
             rewritten = rewrite_res.content.strip() if hasattr(rewrite_res, "content") else normalized
-        except Exception:
+        except Exception as e:
+            print(f"  * Warning Rewrite    : Gagal rewrite ({e}), menggunakan query normalisasi", flush=True)
             rewritten = normalized
+
+        elapsed = time.time() - t_start
+        print(f"  * Query Rewrite      : \"{rewritten}\"", flush=True)
+        print(f"  * Selesai Tahap 1    : {elapsed:.2f} detik", flush=True)
 
         return {
             "normalized_query": normalized,
@@ -100,6 +119,7 @@ def query_understanding_node(state: RAGState) -> Dict:
         }
 
     # Mode 2: LLM Router Fallback
+    print(f"  * Router Model       : LLM ({settings.primary_model})", flush=True)
     llm = ChatOllama(
         base_url=settings.ollama_base_url,
         model=settings.primary_model,
@@ -114,13 +134,20 @@ def query_understanding_node(state: RAGState) -> Dict:
         result: QueryUnderstandingOutput = chain.invoke(
             {"query": query, "normalized_query": normalized}
         )
+        elapsed = time.time() - t_start
+        print(f"  * Keputusan Rute     : {result.route.upper()}", flush=True)
+        print(f"  * Query Rewrite      : \"{result.rewritten_query}\"", flush=True)
+        print(f"  * Reasoning          : {result.reasoning}", flush=True)
+        print(f"  * Selesai Tahap 1    : {elapsed:.2f} detik", flush=True)
         return {
             "normalized_query": normalized,
             "rewritten_query": result.rewritten_query,
             "route": result.route,
             "retry_count": retry_count,
         }
-    except Exception:
+    except Exception as e:
+        elapsed = time.time() - t_start
+        print(f"  * Fallback Router    : Gagal ({e}), default ke 'keduanya' ({elapsed:.2f}s)", flush=True)
         return {
             "normalized_query": normalized,
             "rewritten_query": normalized,

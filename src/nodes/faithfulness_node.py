@@ -36,12 +36,21 @@ Keluarkan format JSON.""",
 
 def faithfulness_node(state: RAGState) -> Dict:
     """Node 6: Faithfulness check untuk mencegah halusinasi penetapan hukum."""
+    import time
+
+    t_start = time.time()
+    print(f"\n[6/6] FAITHFULNESS CHECKER (Self-RAG Grounding Verification)", flush=True)
+
     if state.get("abstain", False):
+        print(f"  * Status             : Dilewati karena jawaban sebelumnya berstatus ABSTAIN", flush=True)
+        print("=" * 80 + "\n", flush=True)
         return {"faithfulness_passed": True}
 
     generation = state.get("generation", "")
     docs = state.get("reranked_documents", [])
     context_str = format_context(docs)
+
+    print(f"  * Menguji Grounding  : Memverifikasi apakah semua klaim hukum bertumpu pada dokumen...", flush=True)
 
     llm = ChatOllama(
         base_url=settings.ollama_base_url,
@@ -61,6 +70,16 @@ def faithfulness_node(state: RAGState) -> Dict:
     except Exception as e:
         passed = True
         explanation = f"Faithfulness check fallback: {e}"
+
+    elapsed = time.time() - t_start
+    status_str = "LULUS (FAITHFUL)" if passed else "GAGAL (UNFAITHFUL -> ABSTAIN)"
+    print(f"  * Hasil Pengujian    : {status_str} ({elapsed:.2f} detik)", flush=True)
+    if explanation:
+        print(f"  * Evaluasi Grounding : {explanation[:130]}...", flush=True)
+
+    print("=" * 80, flush=True)
+    print(f"[RAG PIPELINE] SELESAI MEMPROSES PERTANYAAN", flush=True)
+    print("=" * 80 + "\n", flush=True)
 
     if not passed:
         # Jika klaim tidak faithful terhadap teks rujukan, abstain demi kehati-hatian syar'i

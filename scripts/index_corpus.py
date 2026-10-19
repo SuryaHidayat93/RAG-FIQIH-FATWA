@@ -80,16 +80,19 @@ def index_data():
             print(f"✓ Koleksi Qdrant '{corpus_name}' sudah terisi lengkap ({existing_points} vektor). Lewati dense embedding.")
             continue
 
-        print(f"Menghitung embedding dense (BGE-M3) dalam batch (64)...")
-        # Inisialisasi/reset koleksi jika data bertambah banyak agar ID selaras
-        if existing_points > 0 and existing_points < len(docs):
-            dense.client.delete_collection(corpus_name)
+        start_from = 0
+        if 0 < existing_points < len(docs):
+            print(f"Melanjutkan (resume) proses embedding dari titik {existing_points} ke {len(docs)}...")
+            start_from = existing_points
+        else:
             dense.ensure_collection(corpus_name)
+
+        print(f"Menghitung embedding dense (BGE-M3) dalam batch (64) mulai index {start_from + 1}...")
 
         chunk_size = 500
         total_docs = len(docs)
 
-        for start_idx in range(0, total_docs, chunk_size):
+        for start_idx in range(start_from, total_docs, chunk_size):
             end_idx = min(start_idx + chunk_size, total_docs)
             batch_docs = docs[start_idx:end_idx]
             batch_texts = [d["content"] for d in batch_docs]

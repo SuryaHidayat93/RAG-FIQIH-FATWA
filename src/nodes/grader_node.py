@@ -46,13 +46,21 @@ REWRITE_PROMPT = ChatPromptTemplate.from_messages([
 
 def grader_node(state: RAGState) -> Dict:
     """Node 4: Evaluasi relevansi dokumen hasil retrieval (CRAG)."""
+    import time
+
+    t_start = time.time()
     docs = state.get("reranked_documents", [])
     query = state.get("rewritten_query") or state.get("query")
     retry_count = state.get("retry_count", 0)
 
+    print(f"\n[4/6] CRAG DOCUMENT GRADER (Relevance Verification)", flush=True)
+
     if not docs:
+        print(f"  * Penilaian          : TIDAK_RELEVAN (Dokumen kosong)", flush=True)
         if retry_count < settings.max_crag_retries:
+            print(f"  * Aksi               : Mengulang retrieval (Percobaan {retry_count + 1}/{settings.max_crag_retries})...", flush=True)
             return {"grade": "tidak_relevan", "retry_count": retry_count + 1}
+        print(f"  * Aksi               : Batas retry tercapai -> ABSTAIN", flush=True)
         return {"grade": "tidak_relevan", "abstain": True}
 
     context_str = "\n\n".join(
@@ -68,24 +76,35 @@ def grader_node(state: RAGState) -> Dict:
     structured_llm = llm.with_structured_output(GraderOutput)
     chain = GRADER_PROMPT | structured_llm
 
+    explanation = ""
     try:
         result: GraderOutput = chain.invoke({"query": query, "context": context_str})
         grade = result.grade
-    except Exception:
-        grade = "relevan"  # default pass jika grader parsing gagal
+        explanation = result.explanation
+    except Exception as e:
+        grade = "relevan"
+        explanation = f"Fallback penilaian (error parser: {e})"
+
+    elapsed = time.time() - t_start
+    print(f"  * Hasil Evaluasi     : {grade.upper()} ({elapsed:.2f} detik)", flush=True)
+    if explanation:
+        print(f"  * Keterangan         : {explanation[:120]}...", flush=True)
 
     if grade == "tidak_relevan":
         if retry_count < settings.max_crag_retries:
-            # Lakukan query rewrite sekali lagi
+            print(f"  * Aksi CRAG          : Dokumen belum relevan. Merumuskan ulang query (Retry {retry_count + 1})...", flush=True)
             rewrite_chain = REWRITE_PROMPT | llm
             res = rewrite_chain.invoke({"query": query})
             new_query = res.content.strip() if hasattr(res, "content") else query
+            print(f"  * Query Baru (CRAG)  : \"{new_query}\"", flush=True)
             return {
                 "grade": "tidak_relevan",
                 "rewritten_query": new_query,
                 "retry_count": retry_count + 1,
             }
         else:
+            print(f"  * Aksi CRAG          : Batas retry ({settings.max_crag_retries}x) habis -> Rute ke ABSTAIN demi kehati-hatian", flush=True)
             return {"grade": "tidak_relevan", "abstain": True}
 
+    print(f"  * Aksi CRAG          : Dokumen mencukupi -> Lanjut ke Generator Syariah", flush=True)
     return {"grade": grade, "abstain": False}

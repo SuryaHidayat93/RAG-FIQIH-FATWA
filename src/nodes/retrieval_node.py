@@ -30,14 +30,26 @@ def retrieve_fiqih_corpus(query: str) -> List[Document]:
 
 def parallel_retrieval_node(state: RAGState) -> Dict:
     """Node 2: Eksekusi retrieval paralel sesuai keputusan router."""
+    import time
+
+    t_start = time.time()
     route = state.get("route", "keduanya")
     query = state.get("rewritten_query") or state.get("query")
+    retry_count = state.get("retry_count", 0)
+
+    print(f"\n[2/6] PARALLEL HYBRID RETRIEVAL (BGE-M3 Dense + BM25 Sparse -> RRF)", flush=True)
+    if retry_count > 0:
+        print(f"  * Mode               : RETRY ke-{retry_count} (setelah CRAG query rewrite)", flush=True)
+    print(f"  * Query Retrieval    : \"{query}\"", flush=True)
+    print(f"  * Target Korpus      : {route.upper()}", flush=True)
 
     if route == "di_luar_cakupan":
+        print(f"  * Catatan            : Korpus dilewati karena query di luar cakupan.", flush=True)
         return {"retrieved_documents": []}
 
     futures = {}
     docs: List[Document] = []
+    corpus_stats = {}
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
         if route in ["fatwa", "keduanya"]:
@@ -46,11 +58,18 @@ def parallel_retrieval_node(state: RAGState) -> Dict:
             futures[executor.submit(retrieve_fiqih_corpus, query)] = "fiqih"
 
         for future in concurrent.futures.as_completed(futures):
+            c_name = futures[future]
             try:
                 res = future.result()
+                corpus_stats[c_name] = len(res)
                 docs.extend(res)
             except Exception as e:
-                # Log error corpus tapi jangan hentikan eksekusi corpus lain
-                print(f"Error retrieval {futures[future]}: {e}")
+                corpus_stats[c_name] = 0
+                print(f"  * Error retrieval [{c_name}]: {e}", flush=True)
 
+    for c_name, count in corpus_stats.items():
+        print(f"  * Hasil Korpus {c_name.capitalize():6s}: {count} dokumen (RRF Dense+BM25)", flush=True)
+
+    elapsed = time.time() - t_start
+    print(f"  * Total Dokumen RRF  : {len(docs)} dokumen dikirim ke reranker ({elapsed:.2f} detik)", flush=True)
     return {"retrieved_documents": docs}

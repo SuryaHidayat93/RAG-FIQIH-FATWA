@@ -46,6 +46,8 @@ def ask_question(request: QueryRequest):
     if not request.query.strip():
         raise HTTPException(status_code=400, detail="Query tidak boleh kosong.")
 
+    print(f"\n>>> [API POST /ask] Request diterima: \"{request.query}\"", flush=True)
+
     initial_state = {
         "query": request.query,
         "retry_count": 0,
@@ -65,6 +67,7 @@ def ask_question(request: QueryRequest):
             abstain=final_state.get("abstain", False),
         )
     except Exception as e:
+        print(f"!!! [API ERROR] Gagal memproses: {e}", flush=True)
         raise HTTPException(status_code=500, detail=f"Gagal memproses query: {str(e)}")
 
 
