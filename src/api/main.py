@@ -1,3 +1,9 @@
+import sys
+from pathlib import Path
+
+# Tambahkan root folder proyek ke sys.path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+
 from typing import Any, Dict, List, Optional
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel

@@ -1,3 +1,9 @@
+import sys
+from pathlib import Path
+
+# Tambahkan root folder proyek ke sys.path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+
 import streamlit as st
 from src.graph import app_graph
 from src.config import settings
