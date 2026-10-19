@@ -28,6 +28,7 @@ class RAGState(TypedDict):
 
     # Generation & Evaluation
     generation: str
+    raw_generation: Optional[str]
     citations: List[Dict[str, Any]]
     faithfulness_passed: bool
     faithfulness_explanation: Optional[str]

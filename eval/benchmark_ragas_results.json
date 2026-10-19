@@ -1,0 +1,60 @@
+{
+  "evaluator_model": "ag/gemini-3.8-flash",
+  "provider": "9Router (Local Endpoint)",
+  "total_queries": 10,
+  "average_faithfulness": 0.7775,
+  "average_percentage": "77.75%",
+  "evaluation_duration_seconds": 165.09,
+  "results": [
+    {
+      "question": "Apa hukum bunga bank menurut fatwa MUI?",
+      "kategori": "Fatwa",
+      "faithfulness": 0.6923
+    },
+    {
+      "question": "Bagaimana fatwa hukum paylater dalam transaksi online menurut DSN MUI?",
+      "kategori": "Fatwa",
+      "faithfulness": 0.8
+    },
+    {
+      "question": "Bagaimana hukum uang elektronik syariah menurut fatwa DSN MUI?",
+      "kategori": "Fatwa",
+      "faithfulness": 1.0
+    },
+    {
+      "question": "Bagaimana hukum cryptocurrency atau uang kripto menurut keputusan ijtima ulama fatwa MUI?",
+      "kategori": "Fatwa",
+      "faithfulness": 0.9412
+    },
+    {
+      "question": "Bagaimana ketentuan jual beli emas secara cicilan atau angsuran menurut fatwa DSN MUI?",
+      "kategori": "Fatwa",
+      "faithfulness": 0.875
+    },
+    {
+      "question": "Apakah menyentuh kulit istri membatalkan wudhu menurut madzhab Syafi'i?",
+      "kategori": "Fiqih",
+      "faithfulness": 0.0
+    },
+    {
+      "question": "Apa saja rukun dan fardhu wudhu menurut madzhab Syafi'i?",
+      "kategori": "Fiqih",
+      "faithfulness": 1.0
+    },
+    {
+      "question": "Berapa syarat jarak perjalanan bagi musafir agar boleh mengqashar shalat?",
+      "kategori": "Fiqih",
+      "faithfulness": 1.0
+    },
+    {
+      "question": "Berapa batas minimal ukuran air dua kullah dalam liter menurut madzhab Syafi'i?",
+      "kategori": "Fiqih",
+      "faithfulness": 0.6667
+    },
+    {
+      "question": "Berapa nisab zakat emas dan perak serta kadar zakat yang wajib dikeluarkan?",
+      "kategori": "Fiqih",
+      "faithfulness": 0.8
+    }
+  ]
+}

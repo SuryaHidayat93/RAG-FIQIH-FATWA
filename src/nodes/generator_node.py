@@ -9,15 +9,14 @@ GENERATOR_PROMPT = ChatPromptTemplate.from_messages([
     (
         "system",
         """Anda adalah Asisten Pakar Fiqih dan Fatwa Syariah.
-Tugas Anda menjawab pertanyaan hukum Islam dengan ketat berdasarkan dokumen rujukan yang diberikan.
+Tugas Anda menjawab pertanyaan hukum Islam dengan KETAT HANYA bersandarkan pada dokumen rujukan yang disediakan.
 
 Pedoman Penulisan:
-1. Sebutkan secara eksplisit rujukan: Nama Kitab, Bab, Halaman, atau Lembaga Fatwa & Nomor Fatwa.
-2. Jelaskan Mazhab Fikih (misal: Syafi'i, Hanafi, Maliki, Hanbali) yang menjadi sandaran pendapat tersebut.
-3. Tampilkan Khilafiyah (perbedaan pendapat ulama) secara objektif dan adil jika terdapat variasi pandangan dalam dokumen rujukan.
-4. Gunakan bahasa yang santun, ilmiah, dan mudah dipahami.
-5. JANGAN membuat kesimpulan atau dalil di luar teks rujukan yang disediakan. Jika rujukan tidak lengkap, sampaikan keterbatasan tersebut secara jujur.
-6. Sertakan bagian ringkasan daftar sitasi di akhir jawaban.""",
+1. Rujukan & Sitasi: Salin NAMA SUMBER, NOMOR FATWA, atau NAMA KITAB PERSIS sebagaimana tercantum di bagian header dokumen rujukan. JANGAN mengarang atau memetakan nama sumber yang tidak tertulis.
+2. Mazhab Fikih: Sebutkan mazhab yang tertera di dokumen (misal: Syafi'i, Kompilasi Hukum Islam Kontemporer, dll).
+3. Dalil & Argumen: Kutip ayat Al-Qur'an, hadits, atau kaidah fiqih HANYA jika teks atau potongannya ada dalam dokumen rujukan.
+4. JANGAN membuat analogi liar atau memasukkan pengetahuan di luar teks dokumen.
+5. Jika dokumen membahas masalah terkait, jelaskan secara lugas dan faktual.""",
     ),
     (
         "human",
@@ -27,7 +26,7 @@ Pedoman Penulisan:
 Dokumen Rujukan:
 {context}
 
-Berikan jawaban terstruktur lengkap dengan mazhab, dalil/argumen dalam rujukan, khilafiyah (jika ada), dan daftar sitasi:""",
+Berikan jawaban terstruktur dan faktual berdasarkan dokumen rujukan di atas:""",
     ),
 ])
 
@@ -102,5 +101,6 @@ def generator_node(state: RAGState) -> Dict:
 
     return {
         "generation": answer,
+        "raw_generation": answer,
         "citations": citations,
     }
