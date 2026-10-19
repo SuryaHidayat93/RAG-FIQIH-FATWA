@@ -95,7 +95,13 @@ def grader_node(state: RAGState) -> Dict:
             print(f"  * Aksi CRAG          : Dokumen belum relevan. Merumuskan ulang query (Retry {retry_count + 1})...", flush=True)
             rewrite_chain = REWRITE_PROMPT | llm
             res = rewrite_chain.invoke({"query": query})
-            new_query = res.content.strip() if hasattr(res, "content") else query
+            raw_new_query = res.content.strip() if hasattr(res, "content") else query
+            # Bersihkan tanda kurung kurawal, JSON artifacts, dan kutip
+            import re
+            cleaned_query = re.sub(r'^[{"\'\s]+|[}"\'\s]+$', '', raw_new_query)
+            cleaned_query = re.sub(r'^(?:query|Pertanyaan)\s*[:\s]*', '', cleaned_query, flags=re.IGNORECASE).strip('"\': ')
+            new_query = cleaned_query if len(cleaned_query) > 5 else raw_new_query
+
             print(f"  * Query Baru (CRAG)  : \"{new_query}\"", flush=True)
             return {
                 "grade": "tidak_relevan",

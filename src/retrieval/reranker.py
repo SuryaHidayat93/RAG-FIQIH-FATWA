@@ -19,6 +19,8 @@ class CrossEncoderReranker:
             try:
                 # Muat dari cache lokal agar tidak memblokir request pengguna
                 self._model = CrossEncoder(self.model_name, device=device, local_files_only=True)
+                # Batasi sequence length ke 512 (optimal untuk potongan chunk syariah 1000-1500 char)
+                self._model.max_length = 512
             except Exception:
                 # Model belum terunduh penuh di cache lokal
                 self._model = None

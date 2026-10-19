@@ -102,7 +102,11 @@ def query_understanding_node(state: RAGState) -> Dict:
                 temperature=0.0,
             )
             rewrite_res = (REWRITE_ONLY_PROMPT | llm).invoke({"query": normalized})
-            rewritten = rewrite_res.content.strip() if hasattr(rewrite_res, "content") else normalized
+            raw_rewritten = rewrite_res.content.strip() if hasattr(rewrite_res, "content") else normalized
+            import re
+            cleaned = re.sub(r'^[{"\'\s]+|[}"\'\s]+$', '', raw_rewritten)
+            cleaned = re.sub(r'^(?:query|Pertanyaan)\s*[:\s]*', '', cleaned, flags=re.IGNORECASE).strip('"\': ')
+            rewritten = cleaned if len(cleaned) > 5 else normalized
         except Exception as e:
             print(f"  * Warning Rewrite    : Gagal rewrite ({e}), menggunakan query normalisasi", flush=True)
             rewritten = normalized
