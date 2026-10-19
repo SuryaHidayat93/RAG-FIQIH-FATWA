@@ -35,16 +35,43 @@ query = st.text_input(
     placeholder="Contoh: Bagaimana hukum paylater dalam transaksi online menurut fatwa DSN MUI?",
 )
 
+import requests
+
+def run_query(query_text: str):
+    api_url = f"http://127.0.0.1:{settings.api_port}"
+    try:
+        h = requests.get(f"{api_url}/health", timeout=1.0)
+        if h.status_code == 200:
+            res = requests.post(f"{api_url}/ask", json={"query": query_text}, timeout=300)
+            if res.status_code == 200:
+                data = res.json()
+                return {
+                    "generation": data.get("answer", ""),
+                    "citations": data.get("citations", []),
+                    "route": data.get("route", ""),
+                    "rewritten_query": data.get("rewritten_query", query_text),
+                    "grade": "relevan" if not data.get("abstain") else "tidak_relevan",
+                    "faithfulness_passed": data.get("faithfulness_passed", True),
+                    "faithfulness_explanation": data.get("faithfulness_explanation"),
+                    "reranked_documents": [],
+                    "mode": "FastAPI Server"
+                }
+    except Exception:
+        pass
+
+    initial_state = {
+        "query": query_text,
+        "retry_count": 0,
+        "retrieved_documents": [],
+    }
+    res = app_graph.invoke(initial_state)
+    res["mode"] = "Embedded Graph"
+    return res
+
 if st.button("Cari Jawaban Hukum", type="primary") and query:
     with st.spinner("Memproses pertanyaan melalui pipeline LangGraph..."):
-        initial_state = {
-            "query": query,
-            "retry_count": 0,
-            "retrieved_documents": [],
-        }
-
         try:
-            result = app_graph.invoke(initial_state)
+            result = run_query(query)
 
             col1, col2 = st.columns([2, 1])
 
