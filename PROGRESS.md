@@ -111,5 +111,5 @@ Pipeline dirancang dengan arsitektur **Corrective RAG (CRAG)** dan **Self-RAG (F
 - [x] Scaffolding IndoBERT Router + 335 dataset latih
 - [x] Ekstraksi & pembersihan 543 dokumen Fathul Qarib
 - [x] Ekstraksi, pembersihan mendalam, & BM25 indexing 10.987 dokumen Fatwa PDF
-- [ ] Penyelesaian dense embedding Qdrant untuk korpus fatwa
-- [ ] Pengujian retrieval end-to-end dengan query fikih & fatwa riil
+- [x] Penyelesaian dense embedding Qdrant untuk korpus fatwa via GPU RTX 4050 (10.987 vektor)
+- [ ] Pengujian retrieval end-to-end dengan query fikih & fatwa riil (FastAPI & Streamlit)
