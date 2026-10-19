@@ -15,6 +15,12 @@ class Settings(BaseSettings):
     indobert_model_path: str = "./models/indobert_router"
     indobert_base_model: str = "indobenchmark/indobert-base-p1"
 
+    # Evaluator 9Router (Gemini 3.8 Flash)
+    use_9router_for_eval: bool = True
+    ninerouter_base_url: str = "http://localhost:20128/v1"
+    ninerouter_api_key: str = ""
+    faithfulness_model: str = "ag/gemini-3.8-flash"
+
     # Embedding & Reranker
     embedding_model_name: str = "BAAI/bge-m3"
     reranker_model_name: str = "BAAI/bge-reranker-v2-m3"
