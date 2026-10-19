@@ -40,6 +40,7 @@ class QueryResponse(BaseModel):
     faithfulness_passed: bool
     faithfulness_explanation: Optional[str] = None
     abstain: bool
+    reranked_documents: List[Dict[str, Any]] = []
 
 
 @app.get("/health")
@@ -62,6 +63,17 @@ def ask_question(request: QueryRequest):
 
     try:
         final_state = app_graph.invoke(initial_state)
+        # Format ringkas reranked documents untuk response
+        formatted_docs = []
+        for d in final_state.get("reranked_documents", []):
+            formatted_docs.append({
+                "id": str(d.get("id")),
+                "content": str(d.get("content", ""))[:400],
+                "corpus": str(d.get("corpus", "")),
+                "score": float(d.get("score", 0.0)),
+                "metadata": d.get("metadata", {}),
+            })
+
         return QueryResponse(
             query=request.query,
             route=final_state.get("route", "keduanya"),
@@ -71,6 +83,7 @@ def ask_question(request: QueryRequest):
             faithfulness_passed=final_state.get("faithfulness_passed", True),
             faithfulness_explanation=final_state.get("faithfulness_explanation"),
             abstain=final_state.get("abstain", False),
+            reranked_documents=formatted_docs,
         )
     except Exception as e:
         print(f"!!! [API ERROR] Gagal memproses: {e}", flush=True)

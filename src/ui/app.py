@@ -42,6 +42,7 @@ def run_query(query_text: str):
     try:
         h = requests.get(f"{api_url}/health", timeout=1.0)
         if h.status_code == 200:
+            print(f">>> [STREAMLIT] Meneruskan query ke FastAPI Server ({api_url})...", flush=True)
             res = requests.post(f"{api_url}/ask", json={"query": query_text}, timeout=300)
             if res.status_code == 200:
                 data = res.json()
@@ -53,8 +54,8 @@ def run_query(query_text: str):
                     "grade": "relevan" if not data.get("abstain") else "tidak_relevan",
                     "faithfulness_passed": data.get("faithfulness_passed", True),
                     "faithfulness_explanation": data.get("faithfulness_explanation"),
-                    "reranked_documents": [],
-                    "mode": "FastAPI Server"
+                    "reranked_documents": data.get("reranked_documents", []),
+                    "mode": "FastAPI Server",
                 }
     except Exception:
         pass

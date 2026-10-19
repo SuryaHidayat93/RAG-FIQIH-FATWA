@@ -1,41 +1,20 @@
 """Script CLI untuk mengajukan pertanyaan ke RAG Fiqih & Fatwa langsung dari terminal."""
 import sys
 from pathlib import Path
-import requests
 
 # Tambahkan root path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from src.config import settings
 from src.graph import app_graph
 
 
 def ask(query_text: str):
-    api_url = f"http://127.0.0.1:{settings.api_port}"
-    used_api = False
-
-    try:
-        h = requests.get(f"{api_url}/health", timeout=0.8)
-        if h.status_code == 200:
-            print(f">>> Mengirim pertanyaan ke FastAPI server ({api_url})...", flush=True)
-            res = requests.post(f"{api_url}/ask", json={"query": query_text}, timeout=300)
-            if res.status_code == 200:
-                data = res.json()
-                result = {
-                    "generation": data.get("answer", ""),
-                    "citations": data.get("citations", []),
-                }
-                used_api = True
-    except Exception:
-        pass
-
-    if not used_api:
-        initial_state = {
-            "query": query_text,
-            "retry_count": 0,
-            "retrieved_documents": [],
-        }
-        result = app_graph.invoke(initial_state)
+    initial_state = {
+        "query": query_text,
+        "retry_count": 0,
+        "retrieved_documents": [],
+    }
+    result = app_graph.invoke(initial_state)
 
     print("\n" + "=" * 80)
     print("JAWABAN AKHIR SYARIAH:")
