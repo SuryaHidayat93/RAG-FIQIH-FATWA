@@ -91,7 +91,7 @@ for bar, score in zip(bars, scores):
 
 # Title and Subtitle in Figure coordinates
 fig.text(0.08, 0.94, "RAG FIQIH & FATWA — BENCHMARK EVALUATION", fontsize=24, color="#FFFFFF", weight="bold")
-fig.text(0.08, 0.905, "Faithfulness & Hallucination Audit via Ragas Framework + Gemini 3.8 Flash (9Router)", fontsize=13, color="#94A3B8")
+fig.text(0.08, 0.905, "Faithfulness & Hallucination Audit via Ragas Framework + Gemini 3.8 Flash", fontsize=13, color="#94A3B8")
 
 # Category Tag
 fig.text(0.92, 0.935, "PRODUCTION BENCHMARK", fontsize=10.5, color="#38BDF8", weight="bold", ha="right",
@@ -114,12 +114,12 @@ valid_avg = sum(valid_scores) / len(valid_scores) if valid_scores else 0
 fig.text(0.39, 0.765, f"{valid_avg:.2f}%", fontsize=26, color="#10B981", weight="bold")
 fig.text(0.505, 0.772, "avg", fontsize=12, color="#64748B")
 
-# Card 3: Evaluator & Cost
+# Card 3: Evaluator Speed
 rect3 = patches.FancyBboxPatch((0.67, 0.74), 0.25, 0.125, boxstyle="round,pad=0.01", facecolor="#1E293B", edgecolor="#334155", linewidth=1.5, transform=fig.transFigure)
 fig.patches.append(rect3)
-fig.text(0.685, 0.825, "EVALUATOR SPEED & COST", fontsize=10, color="#94A3B8", weight="bold")
+fig.text(0.685, 0.825, "EVALUATOR AUDIT LATENCY", fontsize=10, color="#94A3B8", weight="bold")
 fig.text(0.685, 0.765, f"16.5s", fontsize=26, color="#F59E0B", weight="bold")
-fig.text(0.74, 0.772, "/ query (~Rp 6/test)", fontsize=11.5, color="#64748B")
+fig.text(0.74, 0.772, "avg per query", fontsize=11.5, color="#64748B")
 
 # Footer Technical Specs Bar
 rect_footer = patches.FancyBboxPatch((0.08, 0.04), 0.84, 0.085, boxstyle="round,pad=0.01", facecolor="#111827", edgecolor="#1F2937", linewidth=1.2, transform=fig.transFigure)
@@ -128,7 +128,7 @@ fig.patches.append(rect_footer)
 spec_text = (
     "  • Architecture: CRAG + Self-RAG + Hybrid Retrieval (BGE-M3 Dense + BM25 Sparse -> RRF)     "
     "  • Corpora: 10,987 Fatwa DSN-MUI + 583 Kitab Fathul Qarib\n"
-    "  • Models: Generator (Llama 3.1 8B via Ollama / RTX 4050) | Evaluator: Gemini 3.8 Flash (9Router) | Cross-Model Zero-Shot Verification"
+    "  • Models: Generator (Llama 3.1 8B via Ollama / RTX 4050) | Evaluator: Gemini 3.8 Flash | Cross-Model Zero-Shot Verification"
 )
 fig.text(0.095, 0.065, spec_text, fontsize=10, color="#94A3B8", linespacing=1.6)
 
